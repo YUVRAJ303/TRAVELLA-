@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Traveella | Travel with us</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      display: flex;
+      height: 100vh;
+    }
+
+    /* Left side background image */
+    .left-side {
+      flex: 1;
+      background: url('\images\signupBGPic.jpg') center/cover no-repeat;
+    }
+
+    /* Right side login form */
+    .right-side {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+    }
+
+    .container {
+      width: 80%;
+      max-width: 380px;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 32px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .logo span {
+      color: #222;
+    }
+
+    h2 {
+      font-size: 26px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    p {
+      color: #555;
+      margin-bottom: 25px;
+    }
+
+    /* Toggle button */
+    .toggle {
+      display: flex;
+      background-color: #f0f0f0;
+      border-radius: 30px;
+      overflow: hidden;
+      margin-bottom: 25px;
+    }
+
+    .toggle button {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .toggle .active {
+      background-color: #000;
+      color: #fff;
+      border-radius: 30px;
+      transition: 0.3s;
+    }
+
+    /* Sign up buttons */
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      border-radius: 30px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .google-btn {
+      border: 1px solid #ddd;
+      background-color: #fff;
+    }
+
+    .google-btn:hover {
+      background-color: #f9f9f9;
+    }
+
+    .or {
+      position: relative;
+      margin: 15px 0;
+      font-size: 14px;
+      color: #888;
+    }
+
+    .or::before, .or::after {
+      content: "";
+      position: absolute;
+      width: 40%;
+      height: 1px;
+      background-color: #ccc;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .or::before {
+      left: 0;
+    }
+
+    .or::after {
+      right: 0;
+    }
+
+    .email-btn { 
+      background-color: #000;
+      color: #fff;
+    }
+
+    .email-btn:hover {
+      background-color: #333;
+    }
+
+    small {
+      font-size: 12px;
+      color: #777;
+      display: block;
+      margin: 15px 0;
+    }
+
+    .login-link {
+      border: 1px solid #000;
+      background: none;
+      color: #000;
+    }
+
+    .login-link:hover {
+      background-color: #000;
+      color: #fff;
+    }
+
+    /* Hide admin form initially */
+    #admin-form {
+      display: none;
+    }
+  </style>
+
+
+</head>
+
+
+<body>
+  <div class="left-side"></div>
+
+
+
+
+  <div class="right-side">
+    <div class="container">
+      <div class="logo">TRAVEELLA</div>
+      <h2>Travel with us</h2>
+      <p>Join us today</p>
+
+
+      <!-- user and admin toggle buttons -->
+
+      <div class="toggle">
+        <button id="userBtn" class="active">User</button>
+        <button id="adminBtn">Admin</button>
+      </div>
+
+
+
+      <!-- User Form -->  
+
+      <div id="user-form">  
+
+        <button class="btn google-btn">Sign up with Google</button> 
+
+        <div class="or">OR</div> 
+
+        <button class="btn email-btn">Sign up with phone or email</button>
+
+        <small>   
+          By signing up, you agree to the 
+          <a href="#">Terms of Service</a> and      
+          <a href="#">Privacy Policy</a>, including cookie use.
+        </small>
+
+        <button class="btn login-link">Already have an account? Log in</button>  
+
+      </div>
+
+
+
+
+      <!-- Admin Form -->
+       
+      <div id="admin-form">
+        <input type="text" placeholder="Admin Email" style="width:100%;padding:10px;margin-bottom:10px;border-radius:8px;border:1px solid #ccc;">
+        <input type="password" placeholder="Password" style="width:100%;padding:10px;margin-bottom:15px;border-radius:8px;border:1px solid #ccc;">
+        <button class="btn email-btn">Login as Admin</button>
+        <small>
+          By logging in, you agree to the 
+          <a href="#">Admin Terms</a> and 
+          <a href="#">Privacy Policy</a>.
+        </small>
+        <button class="btn login-link">Back to User</button>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <script>
+    const userBtn = document.getElementById("userBtn");
+    const adminBtn = document.getElementById("adminBtn");
+    const userForm = document.getElementById("user-form");
+    const adminForm = document.getElementById("admin-form");
+
+    userBtn.addEventListener("click", () => {
+      userBtn.classList.add("active");
+      adminBtn.classList.remove("active");
+      userForm.style.display = "block";
+      adminForm.style.display = "none";
+    });
+
+    adminBtn.addEventListener("click", () => {
+      adminBtn.classList.add("active");
+      userBtn.classList.remove("active");
+      adminForm.style.display = "block";
+      userForm.style.display = "none";
+    });
+  </script>
+
+
+</body>
+</html>
